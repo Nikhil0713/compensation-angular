@@ -1,0 +1,41 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.heading {
+    font-family: "Roboto";
+    font-weight: bold;
+    color: black;
+    font-size: 36px;
+    margin: 16px;
+}
+
+.input-blog{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.flex-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 60px;
+    padding: 36px;
+    margin-right: 180px;
+}
+
+.page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.adj-cont{
+    margin-left: 16px;
+}

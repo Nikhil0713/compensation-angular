@@ -1,0 +1,248 @@
+<div class="col-md-12">
+  <div class="page-container">
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="main-container">
+        <h5 class="heading">Creating Plan</h5>
+        <div class="flex-cont">
+          <div class="col-md-4">
+            <div class="input-blog">
+              <div>
+                <label for="partnerName" class="label-w label-text"
+                  >Partner Name</label
+                >
+              </div>
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="partnerName"
+                  [(ngModel)]="form.partnerName"
+                  minlength="3"
+                  required
+                  maxlength="20"
+                  #partnerName="ngModel"
+                  placeholder="Enter the Name"
+                />
+              </div>
+              <div class="alert-danger" *ngIf="partnerName.errors && f.submitted">
+                <div *ngIf="partnerName.errors['required']">
+                  Password is required
+                </div>
+                <div *ngIf="partnerName.errors['minlength']">
+                  Category must be at least 3 characters
+                </div>
+                <div *ngIf="partnerName.errors['maxlength']">
+                  Category must be at most 20 characters
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-blog">
+              <div>
+                <label class="label-w label-text" for="compensationPlan"
+                  >Compensation Plan</label
+                >
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                name="compensationPlan"
+                [(ngModel)]="form.compensationPlan"
+                minlength="3"
+                required
+                maxlength="20"
+                #compensationPlan="ngModel"
+                placeholder="Enter the Plan"
+              />
+              <div
+                class="alert-danger"
+                *ngIf="compensationPlan.errors && f.submitted"
+              >
+                <div *ngIf="compensationPlan.errors['required']">
+                  Password is required
+                </div>
+                <div *ngIf="compensationPlan.errors['minlength']">
+                  Title must be at least 3 characters
+                </div>
+                <div *ngIf="compensationPlan.errors['maxlength']">
+                  Title must be at most 20 characters
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-blog">
+              <div>
+                <label class="label-w label-text" for="validTo">Valid To</label>
+              </div>
+              <input
+                type="date"
+                class="form-control"
+                name="validTo"
+                required
+                [(ngModel)]="form.validTo"
+                #validTo="ngModel"
+              />
+              <div
+                class="alert-danger"
+                *ngIf="validTo.errors && f.submitted"
+              ></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-blog">
+              <div>
+                <label class="label-w label-text" for="validFrom"
+                  >Valid From</label
+                >
+              </div>
+              <input
+                type="date"
+                class="form-control"
+                name="validFrom"
+                required
+                [(ngModel)]="form.validFrom"
+                #validFrom="ngModel"
+              />
+              <div
+                class="alert-danger"
+                *ngIf="validFrom.errors && f.submitted"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-cont">
+          <div class="col-md-4">
+            <div class="form-group input-el">
+              <div>
+                <label class="label-w label-text" for="incomeType"
+                  >Income Type
+                </label>
+              </div>
+              <select
+                [(ngModel)]="form.incomeType"
+                name="incomeType"
+                #incomeType="ngModel"
+                required
+              >
+                <option value="revenue">Revenue</option>
+                <option value="volume">volume</option>
+              </select>
+              <div class="alert-danger" *ngIf="incomeType.errors && f.submitted">
+                <div>Role must be a valid Role</div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="form-group input-el">
+              <div>
+                <label class="label-w label-text" for="min">Minimum </label>
+              </div>
+              <input
+                type="number"
+                class="label-w"
+                class="form-control"
+                name="min"
+                [(ngModel)]="form.min"
+                minlength="1"
+                maxlength="1000"
+                #min="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="min.errors && f.submitted">
+                <div *ngIf="min.errors['minlength']">
+                  Price must be at least 3 characters
+                </div>
+                <div *ngIf="min.errors['maxlength']">
+                  Price must be at most 20 characters
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+                <div class="input-blog">
+                  <div>
+                    <label class="label-w label-text" for="max">Maxiumum</label>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="max"
+                    [(ngModel)]="form.max"
+                    minlength="3"
+                    maxlength="20"
+                    #max="ngModel"
+                    required
+                  />
+                  <div class="alert-danger" *ngIf="max.errors && f.submitted">
+                    <div *ngIf="max.errors['minlength']">
+                      max be at least 3 characters
+                    </div>
+                    <div *ngIf="max.errors['maxlength']">
+                      max must be at most 20 characters
+                    </div>
+                  </div>
+                </div>
+          </div>
+  
+          <div class="col-md-4">
+                <div class="form-group input-el">
+                  <div>
+                    <label class="label-w label-text" for="percentagecompensation"
+                      >percentagecompensation</label
+                    >
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="percentagecompensation"
+                    [(ngModel)]="form.percentagecompensation"
+                    minlength="3"
+                    required
+                    maxlength="100"
+                    #percentagecompensation="ngModel"
+                  />
+                  <div
+                    class="alert-danger"
+                    *ngIf="percentagecompensation.errors && f.submitted"
+                  >
+                    <div *ngIf="percentagecompensation.errors['minlength']">
+                      percentagecompensation must be at least 3 characters
+                    </div>
+                    <div *ngIf="percentagecompensation.errors['maxlength']">
+                      percentagecompensation must be at most 20 characters
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group input-el">
+            <button class="btn btn-primary btn-block">Save Plan</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isCreatedFailed"
+          >
+            Creating plan failed!<br />{{ errorMessage }}
+          </div>
+          <div class="alert alert-success" *ngIf="f.submitted && isCreatedIn">
+            Your plan is created successful!
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
